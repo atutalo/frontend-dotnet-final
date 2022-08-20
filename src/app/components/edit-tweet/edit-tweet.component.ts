@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Tweet } from 'src/app/models/tweet';
 import { TweeterService } from 'src/app/services/tweeter.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css'],
+  selector: 'app-edit-tweet',
+  templateUrl: './edit-tweet.component.html',
+  styleUrls: ['./edit-tweet.component.css'],
 })
-export class CreatePostComponent implements OnInit {
+export class EditTweetComponent implements OnInit {
   tweet: Tweet = new Tweet();
   description: string = '';
+  
   constructor(private tweeterService: TweeterService, private router: Router) {}
-
   ngOnInit(): void {}
 
-  createTweet() {
+  editTweet() {
     this.tweet.description = this.description;
     this.tweeterService.createTweet(this.tweet).subscribe(
       (result) => {
@@ -29,5 +29,5 @@ export class CreatePostComponent implements OnInit {
         }
       }
     );
-  }
+}
 }

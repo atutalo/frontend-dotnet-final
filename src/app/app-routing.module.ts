@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { EditTweetComponent } from './components/edit-tweet/edit-tweet.component';
 import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
@@ -29,7 +29,11 @@ const routes: Routes = [
   },
   {
     path: 'edit',
-    component: EditProfileComponent,
+    component: EditTweetComponent,
+  },
+  {
+    path: 'edit/:tweetId',
+    component: EditTweetComponent,
   },
   {
     path: 'search',

@@ -33,6 +33,7 @@ export class UserService {
       );
   }
 
+  //get current signed in user
   getCurrentUser(): Observable<User> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
@@ -42,6 +43,7 @@ export class UserService {
     });
   }
 
+  //get user profile by username
   getUserByUsername(username: string): Observable<User> {
     return this.http.get<User>(this.baseURL + '/' + username)};
   

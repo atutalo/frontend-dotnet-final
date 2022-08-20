@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Tweet } from 'src/app/models/tweet';
 import { User } from 'src/app/models/user';
@@ -12,16 +13,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PostFeedComponent implements OnInit {
   tweets: Tweet[] = [];
-  currentUser: User = new User;
+  currentUser: User = new User();
+  signedInUser: User = new User();
 
   constructor(
     private tweeterService: TweeterService,
-    private userService: UserService
+    private userService: UserService,
+    private actRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getAllTweets();
-    //this.isLoggedIn();
+    this.getCurrentUser();
   }
 
   getAllTweets() {
@@ -29,12 +32,22 @@ export class PostFeedComponent implements OnInit {
       this.tweets = result;
     });
   }
+
+  getCurrentUser() {
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+      console.log(`Profile current user is: ${this.currentUser.username}`);
+    });
+  
+  }
+
+
   // isLoggedIn() {
   //   this.userService.getCurrentUser().subscribe((result) => {
   //     if (result != undefined) {
   //         this.currentUser.isSignedIn = true;
   //       }
-      
+
   //   });
   // }
 }

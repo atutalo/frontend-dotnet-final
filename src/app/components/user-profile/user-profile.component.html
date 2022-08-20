@@ -1,6 +1,5 @@
 <h1>User Profile: {{this.currentUser.username}}</h1>
 
-
         <div class="userProfile">Name: {{this.currentUser.firstName}} {{this.currentUser.lastName}}</div>
         <div class="userProfile">Location: {{ this.currentUser.location }}</div>
         <div class="userProfile">Profile Created: {{ this.currentUser.createdDate }}</div>
@@ -13,6 +12,10 @@
         <div class="tweetProfile">{{ userTweets.user }}</div>
         <div class="tweetProfile">{{ userTweets.date }}</div>
         <div class="tweetProfile">{{ userTweets.time }}</div>
+      </div>
+       <div *ngIf="signedInUser.username == currentUser.username">
+        <button [routerLink]="['/edit']">Edit</button>
+        <button>Delete</button>
       </div>
     </div>
   </div>

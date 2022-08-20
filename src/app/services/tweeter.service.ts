@@ -13,14 +13,17 @@ export class TweeterService {
 
   constructor(private http: HttpClient) {}
 
+  //get all tweets
   getTweets(): Observable<Tweet[]> {
     return this.http.get<Tweet[]>(this.baseUrl);
   }
 
+  //get tweets by URL username
   getTweetsByUsername(username: string): Observable<Tweet[]> {
     return this.http.get<Tweet[]>(this.baseUrl + '/' + username);
   }
 
+  //get tweets of current signed in user
   getMyTweets(): Observable<Tweet[]> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
