@@ -21,7 +21,7 @@ export class TweeterService {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.get<Tweet[]>(`${this.baseUrl}`, { headers: reqHeaders });
+    return this.http.get<Tweet[]>(`${this.baseUrl}/myTweets`, { headers: reqHeaders });
   }
 
   createTweet(tweet: Tweet) {

@@ -1,0 +1,16 @@
+.tweet-container {
+    margin: 20px;
+    padding: 30px;
+    min-width: fit-content;
+    border-radius: 15px;
+    border: rgb(35, 171, 213) solid 2px;
+}
+#details {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+}
+.tweetProfile {
+  margin: 0px 5px;
+}
