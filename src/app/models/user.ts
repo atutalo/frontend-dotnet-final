@@ -1,13 +1,15 @@
-export class User {
-  userId: string = '';
-  username: string = '';
-  password: string = '';
-  firstName: string = '';
-  lastName: string = '';
-  location: string = '';
-  createdDate: string = '';
+import { DatePipe } from "@angular/common";
 
-  constructor(userId: string, username: string, password: string, firstName: string, lastName: string, location: string, createdDate: string)
+export class User {
+  userId?: string = '';
+  username?: string = '';
+  password?: string = '';
+  firstName?: string = '';
+  lastName?: string = '';
+  location?: string = '';
+  createdDate?: string = '';
+
+  constructor(userId?: string, username?: string, password?: string, firstName?: string, lastName?: string, location?: string, createdDate?: string)
   {
     this.userId = userId;
     this.username = username;
@@ -15,6 +17,6 @@ export class User {
     this.firstName = firstName;
     this.lastName = lastName;
     this.location = location;
-    this.createdDate = createdDate;
+    this.createdDate = DatePipe.toString();
   }
 }

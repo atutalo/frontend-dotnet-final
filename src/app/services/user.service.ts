@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../models/user';
-import { SignInRequest } from '../models/sign-in-request';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  baseURL: string = 'https://localhost:7025/api/Auth';
+  baseURL: string = 'https://localhost:5001/api/Auth';
 
   constructor(private http: HttpClient) {}
 
-  signUp(newUser: User) {
-    return this.http.post('${this.baseUrl}/register', newUser);
+  signUp(newUser: User): Observable<any> {
+    return this.http.post(`${this.baseURL}/register`, newUser);
   }
 
-  signIn(request: SignInRequest) {
-  
+signIn(email: string, password: string) {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append('email', request.email);
-    queryParams = queryParams.append('password', request.password);
+    queryParams = queryParams.append('email', email);
+    queryParams = queryParams.append('password', password);
 
     return this.http
-      .post(`${this.baseURL}/signin`, {
+      .get(`${this.baseURL}/signin`, {
         params: queryParams,
         responseType: 'text',
       })
@@ -32,7 +30,6 @@ export class UserService {
           localStorage.setItem('myFinalToken', response);
         })
       );
-
   }
 
   getCurrentUser() {

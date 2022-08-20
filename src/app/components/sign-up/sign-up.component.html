@@ -1,17 +1,22 @@
+<div>
+
 <h1>Register</h1>
 
-<!-- <form (ngSubmit)="">
-    <h1>Register</h1>
+<form (ngSubmit)="signUp()">
+    <span>Username  </span>
+    <input placeholder="Enter Username" type="text" name="username" [(ngModel)]="newUser.username"><br><br>
+    <span>Password  </span>
+    <input placeholder="Enter Password" type="text" name="password" [(ngModel)]="newUser.password"><br><br>
     <span>First Name  </span>
     <input placeholder="Enter First Name" type="text" name="firstName" [(ngModel)]="newUser.firstName"><br><br>
     <span>Last Name  </span>
     <input placeholder="Enter Last Name" type="text" name="lastName" [(ngModel)]="newUser.lastName"><br><br>
-    <span>Email  </span>
-    <input placeholder="Enter Email" type="text" name="email" [(ngModel)]="newUser.email"><br><br>
-    <span>Password  </span>
-    <input placeholder="Enter Password" type="text" name="password" [(ngModel)]="newUser.password"><br><br>
+    <span>Location  </span>
+    <input placeholder="Enter Location" type="text" name="location" [(ngModel)]="newUser.location"><br><br>
     
     <button>
       Sign Up
     </button>
-</form> -->
+</form> 
+
+</div>

@@ -12,6 +12,8 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     NavBarComponent,
     CreatePostComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
