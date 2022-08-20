@@ -1,14 +1,16 @@
-<div class="container">
-    <h1>Tweeter Feed</h1>
+<div class="post-container">
+  <h1>Tweeter Feed</h1>
 
-    <app-create-post></app-create-post>
+  <app-create-post></app-create-post>
 
-    <div *ngIf="tweets && tweets.length > 0">
-        <div *ngFor="let tweets of tweets">
-            <div>{{tweets.description}}</div>
-            <div>{{tweets.user}}</div>
-            <div>{{tweets.date}}</div>
-            <div>{{tweets.time}}</div>
-        </div>
+  <div *ngIf="tweets && tweets.length > 0">
+    <div *ngFor="let tweets of tweets" class="tweet-container">
+      <div>{{ tweets.description }}</div>
+      <div id="details">
+        <div class="tweetProfile" routerLink="/profile">{{ tweets.user }}</div>
+        <div class="tweetProfile">{{ tweets.date }}</div>
+        <div class="tweetProfile">{{ tweets.time }}</div>
+      </div>
     </div>
+  </div>
 </div>
