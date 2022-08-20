@@ -8,6 +8,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class UserService {
   baseURL: string = 'https://localhost:5001/api/Auth';
+  tokenKey: string = 'myFinalToken';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +16,7 @@ export class UserService {
     return this.http.post(`${this.baseURL}/register`, newUser);
   }
 
-signIn(email: string, password: string) {
+  signIn(email: string, password: string) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('email', email);
     queryParams = queryParams.append('password', password);
@@ -32,7 +33,16 @@ signIn(email: string, password: string) {
       );
   }
 
-  getCurrentUser() {
-    return this.http.get('${this.baseUrl}/current');
+  getCurrentUser(): Observable<User> {
+    let reqHeaders = {
+      Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
+    };
+    return this.http.get<User>(`${this.baseURL}/current`, {
+      headers: reqHeaders,
+    });
   }
+
+  getUserByUsername(username: string): Observable<User> {
+    return this.http.get<User>(this.baseURL + '/' + username)};
+  
 }

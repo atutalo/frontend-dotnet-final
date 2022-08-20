@@ -8,6 +8,7 @@ export class User {
   lastName?: string = '';
   location?: string = '';
   createdDate?: string = '';
+  isSignedIn?: boolean = false;
 
   constructor(userId?: string, username?: string, password?: string, firstName?: string, lastName?: string, location?: string, createdDate?: string)
   {

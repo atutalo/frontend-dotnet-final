@@ -17,18 +17,24 @@ export class TweeterService {
     return this.http.get<Tweet[]>(this.baseUrl);
   }
 
-  getUserTweets(): Observable<Tweet[]> {
+  getTweetsByUsername(username: string): Observable<Tweet[]> {
+    return this.http.get<Tweet[]>(this.baseUrl + '/' + username);
+  }
+
+  getMyTweets(): Observable<Tweet[]> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.get<Tweet[]>(`${this.baseUrl}/myTweets`, { headers: reqHeaders });
+    return this.http.get<Tweet[]>(`${this.baseUrl}/myTweets`, {
+      headers: reqHeaders,
+    });
   }
 
   createTweet(tweet: Tweet) {
-     let reqHeaders = {
-       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
-     };
-    
+    let reqHeaders = {
+      Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
+    };
+
     return this.http.post(this.baseUrl, tweet, { headers: reqHeaders });
   }
 
@@ -40,9 +46,11 @@ export class TweeterService {
   }
 
   deleteTweet(tweetId: string) {
-     let reqHeaders = {
-       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
-     };
-    return this.http.delete(this.baseUrl + '/' + tweetId, { headers: reqHeaders });
+    let reqHeaders = {
+      Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
+    };
+    return this.http.delete(this.baseUrl + '/' + tweetId, {
+      headers: reqHeaders,
+    });
   }
 }

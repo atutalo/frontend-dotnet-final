@@ -24,7 +24,7 @@ const routes: Routes = [
     component: SignUpComponent,
   },
   {
-    path: 'profile',
+    path: 'profile/:userId',
     component: UserProfileComponent,
   },
   {
