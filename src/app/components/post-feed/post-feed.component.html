@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Tweeter Feed</h1>
+
+    <app-create-post></app-create-post>
+
+    <div *ngIf="tweets && tweets.length > 0">
+        <div *ngFor="let tweets of tweets">
+            <div>{{tweets.description}}</div>
+            <div>{{tweets.user}}</div>
+            <div>{{tweets.date}}</div>
+            <div>{{tweets.time}}</div>
+        </div>
+    </div>
+</div>
