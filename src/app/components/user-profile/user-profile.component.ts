@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tweet } from 'src/app/models/tweet';
 import { User } from 'src/app/models/user';
 import { TweeterService } from 'src/app/services/tweeter.service';
@@ -21,7 +21,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private tweeterService: TweeterService,
     private userService: UserService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute, 
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,4 +59,14 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
+  deleteButton(tweetId: any) {
+    this.tweeterService.deleteTweet(tweetId).subscribe((result) => {
+     window.location.reload();
+    }, error => {
+      console.log("Error: ", error);
+      if (error.status === 401) {
+        this.router.navigate(['signin']);
+      }
+    });
+  }
 }

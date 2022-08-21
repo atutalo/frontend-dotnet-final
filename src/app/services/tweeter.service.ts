@@ -48,11 +48,11 @@ export class TweeterService {
     return this.http.put(this.baseUrl + '/' + tweet.tweetId, tweet, { headers: reqHeaders });
   }
 
-  deleteTweet(tweetId: string) {
+  deleteTweet(tweetId: string): Observable<any> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.delete(this.baseUrl + '/' + tweetId, {
+    return this.http.delete<any>(this.baseUrl + '/' + tweetId, {
       headers: reqHeaders,
     });
   }
