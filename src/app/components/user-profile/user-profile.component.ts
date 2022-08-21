@@ -27,6 +27,7 @@ export class UserProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.currentUsername = this.actRoute.snapshot.paramMap.get('userId') ?? '';
     this.getAllTweetsByUsername();
     this.getSignedInUser();
     this.getUserByUsername();
@@ -34,7 +35,6 @@ export class UserProfileComponent implements OnInit {
 
   //get all tweets by the username in the URL
   getAllTweetsByUsername() {
-    this.currentUsername = this.actRoute.snapshot.paramMap.get('userId') ?? '';
     this.tweeterService
       .getTweetsByUsername(this.currentUsername)
       .subscribe((result) => {
@@ -50,7 +50,6 @@ export class UserProfileComponent implements OnInit {
   }
   //get profile of username in the URL
   getUserByUsername() {
-    this.currentUsername = this.actRoute.snapshot.paramMap.get('userId') ?? '';
     this.userService
       .getUserByUsername(this.currentUsername)
       .subscribe((result) => {

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -21,7 +20,6 @@ import { EditTweetComponent } from './components/edit-tweet/edit-tweet.component
     SignUpComponent,
     SignInComponent,
     UserProfileComponent,
-    SearchUsersComponent,
     PostFeedComponent,
     NavBarComponent,
     CreatePostComponent,
