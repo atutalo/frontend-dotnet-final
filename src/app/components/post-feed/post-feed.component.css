@@ -14,3 +14,12 @@
 .tweetProfile {
   margin: 0px 5px;
 }
+.post-container {
+  margin: 20px
+}
+#username {
+  color: rgb(80, 209, 226);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: smaller;
+  font-style: italic;
+}

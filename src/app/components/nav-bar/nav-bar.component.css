@@ -1,6 +1,9 @@
 #logo {
     max-height: 80px;
 }
+button {
+    
+}
 
 h1 {
     display: flex;
@@ -28,6 +31,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     min-width: 400px;
+    align-items: center;
 }
 .nav-options {
     padding: 0px 12px;

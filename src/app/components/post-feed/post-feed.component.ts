@@ -36,7 +36,6 @@ export class PostFeedComponent implements OnInit {
   getCurrentUser() {
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
-      console.log(this.currentUser);
     });
   }
 

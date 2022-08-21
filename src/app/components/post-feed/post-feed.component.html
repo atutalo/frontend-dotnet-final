@@ -9,7 +9,7 @@
     <div *ngFor="let tweets of tweets" class="tweet-container">
       <div>{{ tweets.description }}</div>
       <div id="details">
-        <div class="tweetProfile" [routerLink]="['/profile/', tweets.user]">
+        <div id="username" class="tweetProfile" [routerLink]="['/profile/', tweets.user]">
           {{ tweets.user }}
         </div>
         <div class="tweetProfile">{{ tweets.date }}</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Tweet } from 'src/app/models/tweet';
 import { User } from 'src/app/models/user';
 import { TweeterService } from 'src/app/services/tweeter.service';
@@ -34,12 +35,10 @@ export class UserProfileComponent implements OnInit {
   //get all tweets by the username in the URL
   getAllTweetsByUsername() {
     this.currentUsername = this.actRoute.snapshot.paramMap.get('userId') ?? '';
-    console.log(this.currentUsername);
     this.tweeterService
       .getTweetsByUsername(this.currentUsername)
       .subscribe((result) => {
         this.userTweets = result;
-        console.log(this.userTweets);
       });
   }
 

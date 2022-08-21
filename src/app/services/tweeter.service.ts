@@ -33,19 +33,21 @@ export class TweeterService {
     });
   }
 
-  createTweet(tweet: Tweet) {
+  createTweet(tweet: Tweet): Observable<Tweet> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
 
-    return this.http.post(this.baseUrl, tweet, { headers: reqHeaders });
+    return this.http.post<Tweet>(this.baseUrl, tweet, { headers: reqHeaders });
   }
 
-  updateTweet(tweet: Tweet) {
+  updateTweet(tweet: Tweet): Observable<Tweet> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.put(this.baseUrl + '/' + tweet.tweetId, tweet, { headers: reqHeaders });
+    return this.http.put<Tweet>(this.baseUrl + '/' + tweet.tweetId, tweet, {
+      headers: reqHeaders,
+    });
   }
 
   deleteTweet(tweetId: string): Observable<any> {

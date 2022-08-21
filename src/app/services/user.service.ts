@@ -45,6 +45,10 @@ export class UserService {
 
   //get user profile by username
   getUserByUsername(username: string): Observable<User> {
-    return this.http.get<User>(this.baseURL + '/' + username)};
-  
+    return this.http.get<User>(this.baseURL + '/' + username);
+  }
+
+  signout(): void {
+    localStorage.removeItem(this.tokenKey);
+  }
 }

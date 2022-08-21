@@ -1,13 +1,25 @@
-<form (ngSubmit)="signIn()">
+<div id="container">
+  <form (ngSubmit)="signIn()">
     <h1>LOGIN</h1>
-    <span>Email  </span>
-    <input placeholder="Enter email" type="text" name="email" autocomplete="on" [(ngModel)]="this.email">
-    <br><br>
-    <span>Password  </span>
-    <input placeholder="Enter password" type="password" name="password" autocomplete="on" [(ngModel)]="this.password">
-    <br><br>
-    
-    <button>
-      Sign In
-    </button>
-</form>
+    <span>Email </span>
+    <input
+      placeholder="Enter email"
+      type="text"
+      name="email"
+      autocomplete="on"
+      [(ngModel)]="this.email"
+    />
+    <br /><br />
+    <span>Password </span>
+    <input
+      placeholder="Enter password"
+      type="password"
+      name="password"
+      autocomplete="on"
+      [(ngModel)]="this.password"
+    />
+    <br /><br />
+
+    <button>Sign In</button>
+  </form>
+</div>
