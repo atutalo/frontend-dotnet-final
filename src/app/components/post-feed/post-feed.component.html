@@ -1,7 +1,7 @@
 <div class="post-container">
   <h1>Tweeter Feed</h1>
 
-  <div>
+  <div *ngIf="currentUser.username != null">
     <app-create-post></app-create-post>
   </div>
 

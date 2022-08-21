@@ -45,7 +45,7 @@ export class TweeterService {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.put(this.baseUrl, tweet, { headers: reqHeaders });
+    return this.http.put(this.baseUrl + '/' + tweet.tweetId, tweet, { headers: reqHeaders });
   }
 
   deleteTweet(tweetId: string) {

@@ -14,8 +14,8 @@
         <div class="tweetProfile">{{ userTweets.time }}</div>
       </div>
        <div *ngIf="signedInUser.username == currentUser.username">
-        <button [routerLink]="['/edit']">Edit</button>
-        <button>Delete</button>
+        <button [routerLink]="['/edit/', userTweets.tweetId]">Edit</button>
+        <button (click)="deleteButton(userTweets.tweetId)">Delete</button>
       </div>
     </div>
   </div>

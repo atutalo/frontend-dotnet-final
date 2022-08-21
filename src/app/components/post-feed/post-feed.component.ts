@@ -23,8 +23,8 @@ export class PostFeedComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAllTweets();
     this.getCurrentUser();
+    this.getAllTweets();
   }
 
   getAllTweets() {
@@ -36,18 +36,8 @@ export class PostFeedComponent implements OnInit {
   getCurrentUser() {
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
-      console.log(`Profile current user is: ${this.currentUser.username}`);
+      console.log(this.currentUser);
     });
-  
   }
 
-
-  // isLoggedIn() {
-  //   this.userService.getCurrentUser().subscribe((result) => {
-  //     if (result != undefined) {
-  //         this.currentUser.isSignedIn = true;
-  //       }
-
-  //   });
-  // }
 }

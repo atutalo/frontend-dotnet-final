@@ -57,4 +57,5 @@ export class UserProfileComponent implements OnInit {
         this.currentUser = result;
       });
   }
+
 }
